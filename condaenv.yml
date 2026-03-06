@@ -1,0 +1,17 @@
+# Install environment:
+# conda env create -f condaenv.yml
+# Update environment:
+# conda env update --file condaenv.yml --prune
+name: ConPlasDyn
+dependencies:
+  - numpy
+  - jupyterlab
+  - scipy
+  - gitpython
+  - pandas
+  - matplotlib
+  - dill
+  - pip
+  - ipywidgets
+  - pip:
+    - -e .
