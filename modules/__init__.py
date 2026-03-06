@@ -8,9 +8,14 @@ def _get_git_commit():
         repo = Repo(repo_dir, search_parent_directories=True)
         commit = repo.head.object.hexsha[:7]
 
-        # Check if repo has uncommitted changes
-        if repo.is_dirty(untracked_files=True):
-            warnings.warn("Repository has uncommitted changes!", UserWarning)
+        # Only check untracked files inside "module"
+        module_path = "module/"
+        untracked_in_module = [
+            f for f in repo.untracked_files if f.startswith(module_path)
+        ]
+
+        if untracked_in_module:
+            warnings.warn("Repository has untracked files in module!", UserWarning)
             commit += "-dirty"
 
         return commit
