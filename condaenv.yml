@@ -9,9 +9,11 @@ dependencies:
   - scipy
   - gitpython
   - pandas
+  - openpyxl
   - matplotlib
   - dill
   - pip
   - ipywidgets
+  - openpyxl
   - pip:
     - -e .
